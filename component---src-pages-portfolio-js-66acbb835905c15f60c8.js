@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[10],{E6xs:function(e,n,t){"use strict";t.r(n);var c=t("q1tI"),r=t.n(c);n.default=function(){return r.a.createElement("h1",{style:{textAlign:"center"}},"준비 중입니다")}}}]);
+//# sourceMappingURL=component---src-pages-portfolio-js-66acbb835905c15f60c8.js.map
