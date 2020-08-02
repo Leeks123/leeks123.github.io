@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[11],{E6xs:function(t,e,n){"use strict";n.r(e);var r=n("q1tI"),o=n.n(r);e.default=function(){return o.a.createElement("h1",{style:{textAlign:"center"}},"Sorry, Not yet")}}}]);
-//# sourceMappingURL=component---src-pages-portfolio-js-3751b8903682d3b7dc93.js.map
