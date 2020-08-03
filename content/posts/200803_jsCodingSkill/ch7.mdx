@@ -1,0 +1,194 @@
+---
+title: <자바스크립트 코딩의 기술> ch7
+date: 2020-08-03
+tags:
+  - JS
+---
+
+### 테스트하기 쉬운 함수를 작성하라
+
+코드를 테스트하기가 쉽지 않다면 테스트가 아니라 코드를 변경해야 함
+
+---
+
+### 화살표 함수로 복잡도를 낮춰라
+
+###### 화살표 함수에서 인수를 해체 할당
+
+```javascript
+const name = {
+  first : 'Lemmy',
+  last : 'Kilmister',
+};
+
+function getName({ first,last }) {
+  return `${first} ${last}`;
+}
+```
+
+```javascript
+const getName = ({ first,last }) => `${first}, ${last}`;
+```
+
+###### 객체를 반환하는 방법
+
+```javascript
+const comic = {
+  first : 'Peter',
+  last : 'Bagge',
+  city : 'Seattle',
+  state : 'Washington',
+};
+
+const getNameAndLocation = ({ first, last, city, state }) => ({
+  fullName : `${first} ${last}`,
+  location : `${city}, ${state}`,
+});
+```
+
+객체를 반환할 때는 객체를 괄호로 감싸주어야 함.
+괄호를 사용해서 반환할 떄는 코드를 여러 줄에 걸쳐 작성할 수 있음
+
+###### 고차 함수 만드는 방법
+
+ ```javascript
+const discounter = discount => {
+  return price => {
+    return price*(1-discount);
+  };
+};
+
+const tenPercentOff = discounter(0.1);
+// === price => price*(0.9);
+tenPercentOff(100);
+// 90
+discounter(0.1)(100);
+// 90
+ ```
+
+
+---
+
+
+### 부분 적용 함수로 단일 책임 매개변수를 관리하라
+
+부분 적용 함수를 사용할 경우, 일부 매개변수를 전달하면 해당 매개변수를 잠그는 함수가 반환되어 여기에 더 많은 매개변수를 사용할 수 있다. 즉, 부분 적용 함수를 이용하면 한 번에 전달해야 할 함수 인수가 줄어대는 대신 인수를 더 전달해야 하는 다른 함수를 반환
+
+서로 독립적인 여러 매개변수 집합을 둘 수 있음.
+
+---
+
+### 커링과 배열 메서드를 조합한 부분 적용 함수를 사용하라
+
+###### 고차함수의 부분 적용 활용
+
+```javascript
+const setStrongHallProgram = mergeProgramInformation(building, manager);
+const programInfo = setStrongHallProgram(program);
+const exhibitInfo = setStrongHallProgram(exhibit);
+```
+
+###### 정보 하드코딩
+
+```javascript
+const setStrongHallProgram = program => {
+  const default = {
+  	hours : '8 a.m. - 8 p.m.',
+    address : 'Jayhawk Blvd',
+    name : 'Augusto',
+    phone : '555-555-5555'
+	}
+	return {...default, ...program}
+}
+
+const programs = setStrongHallProgram(program);
+const exhibit = setStrongHallProgram(exhibit);
+```
+
+고차함수가 정보에 대해서 더 유연함. 매개변수를 별도로 분리할 수 있음
+그렇지만 함수를 완전히 분리하기 전에 함수에 필요한 인수의 수를 줄일 수 있도록 인수를 분리하는 것이 훨씬 더 중요
+
+**커링(Currying)**
+한 번에 인수를 하나만 받는 함수
+자바스크립트는 순수한 형태의 커링을 완벽하게 지원하지는 않지만, 부분적용을 이용해서 일련의 단일 매개변수로 매개변수 숫자를 줄이는 방법이 일반적
+
+```javascript
+const dogs = [
+  {
+    이름:'맥스',
+    무게:10,
+    견종:'보스턴테리어',
+    지역:'위스콘신',
+    색상:'검정색',
+  },
+  {
+    이름:'도니',
+    무게:90,
+    견종:'래브라도레트리버',
+    지역:'캔자스',
+    색상:'검정색',
+  },
+  {
+    이름:'새도',
+    무게:40,
+    견종:'래브라도레트리버',
+    지역:'위스콘신',
+    색상:'갈색',
+  },
+];
+
+function getDogNames(dogs,filter){
+  const [key, value] = filter;
+  return dogs
+  	.filter(dog => dog[key] === value)
+  	.map(dog => dog['이름'])
+}
+
+getDogNames(dogs,['색상','검정색']);
+// ['맥스','도니']
+```
+
+```javascript
+function getDogNames(dogs,filterFunc){
+  return dogs
+  	.filter(filterFunc)
+  	.map(dog => dog['이름'])
+}
+
+const weightCheck = weight => dog => dog['무게']<weight;
+
+getDogNames(dogs,weightCheck(20));
+// ['맥스']
+getDogNames(dogs,weightCheck(50));
+// ['맥스','새도']
+
+const identity = field => value => dog => dog[field]===value;
+const colorCheck = identity('색상');
+const stateCheck = identity('지역');
+
+getDogNames(dogs,colorCheck('갈색'));
+// ['새도']
+getDogNames(dogs,stateCheck('켄자스'));
+// ['새도']
+```
+
+###### some
+
+촤소한 하나의 조건을 충족하는 값을 충족하는 경우
+실행 결과 중 하나라도 true를 반환하면 true를 반환
+
+
+---
+
+### 화살표 함수로 문맥 혼동을 피하라
+
+**함수의 유효범위**
+함수가 접근할 수 있는 변수
+함수와 연관된 것
+
+**문맥**
+함수 또는 클래스에서 this 키워드가 참조하는 것
+객체와 연관된 것
+
+화살표 함수는 이미 문맥이 있고 다른 함수 내부에서 이 함수를 사용하려고 할 때 유용.
+새로운 this 바인딩을 설정할 필요가 있을 때 문제가 됨

@@ -6,7 +6,7 @@ const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE;
 
 module.exports = {
   siteMetadata: {
-    siteTitle: `Pre Dev`,
+    siteTitle: `KSLee_Dev`,
     siteTitleAlt: `Leeks Blog`,
     // Can be used for e.g. JSONLD
     siteHeadline: `Minimal Blog - Gatsby Theme from @lekoarts`,

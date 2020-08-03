@@ -1,0 +1,63 @@
+---
+title: <자바스크립트 코딩의 기술> ch10
+date: 2020-08-03
+tags:
+  - JS
+---
+
+### 가져오기와 내보내기로 기능을 분리하라
+
+```javascript
+function getPoser(decimalPlaces) {
+  return 10**decimalPlaces;
+}
+function capitalize(word) {
+  return word[0].toUpperCase() + word.slice(1);
+}
+function roundToDecimalPlace(number, decimalPlaces=2) {
+  const round = getPower(decimalPlaces);
+  return Math.round(number*round)/round;
+}
+
+export { capitalize, roundToDecimalPlace };
+```
+
+`export{ ... }`를 통하여 내보내기
+
+```javascript
+import { capitalize, roundToDecimalPlace } from './util';
+
+function giveTotal(name,total) {
+  return `${capitalize(name)}님, 합계는 ${roundToDecimalPlace(total)}입니다.`;
+}
+
+export { giveTotal };
+```
+
+`import { ... } from '주소'`를 통해서 가져올 수 있음
+변수와 클래스도 내보낼 수 있음
+별표(*)를 이용해서 모든 함수를 불러올 수도 있음
+`as`키워드를 이용해 새로운 변수에 데이터를 할당할 수 있음
+
+`export`를 각각의 함수 앞에 개별적으로 추가 가능
+해당 파일의 내보내기 기본값(`export default`)을 선언할 수 있음
+
+
+---
+
+
+#### npm으로 커뮤니티 코드를 끌어와라
+
+---
+
+### 컴포넌트 아키텍쳐를 이용해 애플리케이션을 만들어라
+
+
+---
+### 빌드 도구를 이용해 컴포넌트를 결합하라
+
+
+---
+
+### CSS 애니메이션을 활용하라
+

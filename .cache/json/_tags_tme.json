@@ -1,0 +1,1 @@
+{"data":{"allPost":{"nodes":[{"__typename":"MdxPost","slug":"/firstPosting","title":"first Posting","date":"01.08.2020","excerpt":"예전에 개츠비로 블로그를 만들려고 진행했으나 맘에 안들어서 포기했었다. \n그러다가 이번에 괜찮은  gatsby starter kit…","timeToRead":1,"description":null,"tags":[{"name":"TIL","slug":"til"},{"name":"TME","slug":"tme"}]}]}},"pageContext":{"slug":"tme","name":"TME","formatString":"DD.MM.YYYY"}}
