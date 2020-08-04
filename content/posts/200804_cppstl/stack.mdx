@@ -1,0 +1,43 @@
+---
+title: CPP STL - Stack
+date: 2020-08-04
+tags:
+  - CPP
+---
+
+```c++
+#include <iostream>
+#include <stack>
+using namespace std;
+int main(){
+	
+  stack<int> st;
+	
+  //원소(4) 삽입
+	st.push(4);
+	
+  //맨 위 원소 팝. top이 가리키는 원소를 삭제. 반환x
+	st.pop(); 
+	
+  //맨 위 원소 값 반환
+	int n = st.pop();
+	
+  //스택이 비어있다면 1 아니면 0
+	printf("%d\n", st.empty());
+	
+  //스택에 저장되어 있는 원소의 수 출력
+	printf("%d\n", st.size());
+	
+  return 0;
+}
+```
+
+
+
+- 데크컨테이너 - 내부 구조가 리스트 (스택이 이 경우)
+
+- 벡터컨테이너 - 내부구조가 동적배열
+
+- 평균적으로 데크가 벡터보다 더 빠르게 동작
+
+  
