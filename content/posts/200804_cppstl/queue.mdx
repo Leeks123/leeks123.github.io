@@ -5,18 +5,17 @@ tags:
   - CPP
 ---
 
-###### 큐
+##### 큐
 
-```c++
+```cpp
 #include <iostream>
 #include <queue>
 using namespace std;
 int main(){
-	
 	queue<int> q;//int자료형을 저장하는 큐 생성
 	
-	q.push(4); // 맨 뒤에 요소 삽입
-	q.pop(); // 맨 앞의 요소를 반환
+  q.push(4); // 맨 뒤에 요소 삽입
+  q.pop(); // 맨 앞의 요소를 반환
 	
   q.front();//큐의 맨 앞에 있는 요소에 대한 참조를 반환
   q.back();//큐의 맨 뒤에 있는 요소에 대한 참조를 반환
@@ -33,9 +32,9 @@ dque 클래스 기반
 
 
 
-###### 우선순위 큐
+##### 우선순위 큐
 
-```c++
+```cpp
 #include <queue>
 using namespace std;
 int main(){
@@ -53,8 +52,6 @@ int main(){
   pq.size();
   
   pq.empty();
-  
- 
   
   return 0;
 }
