@@ -1,0 +1,196 @@
+---
+title: <파이썬을 이용한 빅데이터 분석> ch3 
+date: 2020-08-06
+tags:
+  - Python
+  - BigData
+  - MachineLearning
+---
+
+
+회귀분석은 서로 영향을 주고받으면서 인과관계를 갖는 독립변수와 종속변수 사이의 관계를 분석하는데 사용
+
+종속변수와 독립변수 사이의 함수적 관계를 기술하는 수학적 방정식을 구하는데 사용
+
+### 단일선형회귀모델
+
+종속변수 Y가 독립변수 X와 오차항에 어떻게 관련되어 있는가를 나타내는 방정식
+
+ 
+![단일선형회귀](/ch3_1.png)
+
+- Y : 종속변수
+- ɑ : X값이 변해도 Y의 변동에는 영향을 주지 않는 회귀계수
+- β : X의 영향력을 크기와 부호로 나타내 주는 회귀계수, X의 기울기
+- X : 독립변수
+- ɛ : 오차항. 독립변수 X의 값이 주어질 때 종속변수 Y의 실제값과 예측값의 차이
+
+#### 회귀계수 추정
+
+- 수집된 데이터(산포도)에 가장 적절한 회귀직선을 구하는 것
+
+#### 최소자승법
+
+- 잔차를 제곱한 값들의 합이 최소가 되도록 하는 표본회귀식의 회귀계수를 구하는 방법
+- 잔차 : X가 주어질 때 표본회귀선의 예측 값과 실제 값 사이의 차이
+
+![최소자승법](/ch3_2.png)
+
+### 적합도 검증
+
+- 표본자료를 사용하여 구한 표본회귀식이 종속변수의 값을 어느 정도 정확하게 예측할 수 있는가의 정도를 검증
+- 얼마나 회귀선 주위에 몰려있는가
+- 적합도를 검증하는 방법은 "추정의 표준오차"와 "결정계수"를 구하는 방법
+
+#### 총변동
+
+SST = SSR + SSE
+
+- SST : 총제곱합. 실제 값 y들이 이들의 평균y로부터 흩어진 정도
+- SSR : 회귀제곱합. 예측치와 실제 값y들의 평균 y의 차이의 제곱의 합
+- SSE : 오차제곱합. 예측치와 실체값의 차이의 제곱의 합
+
+#### 결정계수
+
+![결정계수](/ch3_3.png)
+
+결정계수가 1에 가까울수록 정확성이 높음
+
+### 성능평가
+
+- 잔차 : 회귀분석 모델의 예측값과 실제값 사이 차이
+- MSE(Mean Squared Error) : 평균제곱오차
+- RMSE : 평균제곱근오차
+
+### 다중선형회귀분석
+
+- 2개 이상의 독립변수와 하나의 종속변수의 관계를 분석하는 방법
+
+![다중선형회귀분석](/ch3_4.png)
+
+### 단일선형회귀분석 실습(보스턴 집 값 데이터)
+
+```python
+from sklearn import linear_model
+import numpy as np
+import pandas as pd
+import matplotlib
+import matplotlib.pyplot as plt
+%matplotlib inline
+matplotlib.style.use('ggplot')
+
+from sklearn import datasets
+boston_house_prices = datasets.load_boston()
+print(boston_house_prices.keys())
+print(boston_house_prices.data.shape)
+print(boston_house_prices.feature_names)
+```
+<br/>
+
+```
+dict_keys(['data', 'target', 'feature_names', 'DESCR', 'filename'])
+(506, 13)
+['CRIM' 'ZN' 'INDUS' 'CHAS' 'NOX' 'RM' 'AGE' 'DIS' 'RAD' 'TAX' 'PTRATIO'
+    'B' 'LSTAT']
+```
+<br/>
+
+#### 데이터프레임으로 정제
+
+
+```python
+data_frame = pd.DataFrame(boston_house_prices.data)
+
+data_frame.columns = boston_house_prices.feature_names
+data_frame['Price'] = boston_house_prices.target
+data_frame.tail()
+```
+
+![데이터프레임](/ch3_5.png)
+
+
+#### 산점도 표현
+
+
+```python
+data_frame.plot(kind="scatter",x="RM",y="Price",figsize=(6,6),color='black', xlim=(4,8), ylim=(10,45))
+```
+
+![데이터프레임](/ch3_6.png)
+
+#### 데이터 훈련
+
+
+```python
+linear_regression = linear_model.LinearRegression()
+linear_regression.fit(X=pd.DataFrame(data_frame["RM"]),y=data_frame["Price"])
+prediction = linear_regression.predict(X=pd.DataFrame(data_frame["RM"]))
+print("a value = ", linear_regression.intercept_)
+print("b value = ",linear_regression.coef_)
+```
+
+    a value =  -34.67062077643857
+    b value =  [9.10210898]
+
+
+#### 적합도 검증
+##### 잔차
+
+
+```python
+residuals = data_frame["Price"] - prediction
+residuals.describe()
+```
+
+
+
+
+    count    5.060000e+02
+    mean     1.899227e-15
+    std      6.609606e+00
+    min     -2.334590e+01
+    25%     -2.547477e+00
+    50%      8.976267e-02
+    75%      2.985532e+00
+    max      3.943314e+01
+    Name: Price, dtype: float64
+
+
+
+##### 결정계수
+
+
+```python
+SSE = (residuals**2).sum()
+SST = ((data_frame["Price"]-data_frame["Price"].mean())**2).sum()
+R_squared = 1 - (SSE/SST)
+print("R_squared = ", R_squared)
+```
+<br/>
+
+```
+R_squared =  0.4835254559913341
+```
+
+<br/>
+
+#### 회귀선 시각화
+```python
+data_frame.plot(kind="scatter",x=5,y="Price",figsize=(6,6),color="black",xlim=(4,8),ylim=(10,45))
+
+plt.plot(data_frame["RM"],prediction,color="blue")
+```
+![데이터프레임](/ch3_7.png)
+
+#### 성능평가
+
+
+```python
+print('score = ',linear_regression.score(X=pd.DataFrame(data_frame[5]),y=data_frame['Price']))
+print('Mean_Squared_Error = ',mean_squared_error(prediction, data_frame['Price']))
+print('RMSE = ',mean_squared_error(prediction, data_frame['Price'])**0.5)
+```
+
+    score =  0.48352545599133423
+    Mean_Squared_Error =  43.60055177116956
+    RMSE =  6.603071389222561
