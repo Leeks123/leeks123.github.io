@@ -64,7 +64,7 @@
   Link: </component---node-modules-lekoarts-gatsby-theme-minimal-blog-core-src-templates-tags-query-tsx-adc9de8f9f5b97d29770.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </page-data/tags/page-data.json>; rel=preload; as=fetch; crossorigin
-/파이썬을-이용한-빅데이터-분석-ch-5-인공신경망
+/파이썬을-이용한-빅데이터-분석-ch-7-나이브베이즈
   Link: </webpack-runtime-1e726a9cf762a9645df0.js>; rel=preload; as=script
   Link: </framework-0e8501c0599d79803b4b.js>; rel=preload; as=script
   Link: </app-77968127d29bce8a307d.js>; rel=preload; as=script
@@ -72,7 +72,7 @@
   Link: </aed2e917f30c051bccba91aa15989a75fd0bd633-fc9a2565542528c512cf.js>; rel=preload; as=script
   Link: </component---node-modules-lekoarts-gatsby-theme-minimal-blog-core-src-templates-post-query-tsx-fb715c2efc1cc5cfc408.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
-  Link: </page-data/파이썬을-이용한-빅데이터-분석-ch-5-인공신경망/page-data.json>; rel=preload; as=fetch; crossorigin
+  Link: </page-data/파이썬을-이용한-빅데이터-분석-ch-7-나이브베이즈/page-data.json>; rel=preload; as=fetch; crossorigin
 /파이썬을-이용한-빅데이터-분석-ch-6-svm
   Link: </webpack-runtime-1e726a9cf762a9645df0.js>; rel=preload; as=script
   Link: </framework-0e8501c0599d79803b4b.js>; rel=preload; as=script
@@ -82,6 +82,15 @@
   Link: </component---node-modules-lekoarts-gatsby-theme-minimal-blog-core-src-templates-post-query-tsx-fb715c2efc1cc5cfc408.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </page-data/파이썬을-이용한-빅데이터-분석-ch-6-svm/page-data.json>; rel=preload; as=fetch; crossorigin
+/파이썬을-이용한-빅데이터-분석-ch-5-인공신경망
+  Link: </webpack-runtime-1e726a9cf762a9645df0.js>; rel=preload; as=script
+  Link: </framework-0e8501c0599d79803b4b.js>; rel=preload; as=script
+  Link: </app-77968127d29bce8a307d.js>; rel=preload; as=script
+  Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
+  Link: </aed2e917f30c051bccba91aa15989a75fd0bd633-fc9a2565542528c512cf.js>; rel=preload; as=script
+  Link: </component---node-modules-lekoarts-gatsby-theme-minimal-blog-core-src-templates-post-query-tsx-fb715c2efc1cc5cfc408.js>; rel=preload; as=script
+  Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
+  Link: </page-data/파이썬을-이용한-빅데이터-분석-ch-5-인공신경망/page-data.json>; rel=preload; as=fetch; crossorigin
 /파이썬을-이용한-빅데이터-분석-ch-4-랜덤포레스트
   Link: </webpack-runtime-1e726a9cf762a9645df0.js>; rel=preload; as=script
   Link: </framework-0e8501c0599d79803b4b.js>; rel=preload; as=script
