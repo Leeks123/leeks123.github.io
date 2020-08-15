@@ -1,0 +1,180 @@
+---
+title: <파이썬을 이용한 빅데이터 분석> ch4 랜덤포레스트
+date: 2020-08-10
+tags:
+  - Python
+  - BigData
+  - MachineLearning
+---
+
+### 랜덤 포레스트란
+
+- 결정트리의 확장, 단점을 개선하기 위한 알고리즘 중 하나
+- 데이터 분류, 군집, 데이터에서 특징의 중요성 확인
+
+### 랜덤포레스트 예측 모듈 생성과정
+
+1. Dataset에서 샘플 데이터를 선택
+2. 샘플 데이터를 이용해 결정트리 생성
+3. 1과2를 n번 반복
+4. 3을 통해 생성한 n개의 결정트리를 이용해 예측
+5. 예측 결과에서 가장 많이 등장한 결과를 선택하여 최종 결과로 선택
+
+### 랜덤 포레스트 특징
+
+- 여러 개의 결정트리를 결합함으로써 단일 결정트리의 결점을 극복
+- Overfitting 문제가 적음
+- 구현이 간단
+- 병렬 계산이 간단
+
+### 랜덤포레스트에서의 Random
+- 데이터 셋에서 샘플데이터를 random으로 선택
+    - 데이터는 중복선택을 함
+- 선택한 샘플 데이터에서 random으로 feature를 선택
+    - feature의 개수는 전체 feature수의 제곱근, log2 등 방법으로 계산
+### 자기 성능 평가
+
+- Bagging (Bootstrap Aggregation)
+    - 63%의 데이터를 이용해 각각의 트리를 생성
+    - 나머지 37%의 데이터를 이용해 각각의 트리의 성능을 평가
+    - 각각의 트리에 입력하는 데이터는 다름
+- Out-of-Bag (OOB)
+    - OOB 데이터를 이용해 tree의 성능을 교정
+    - OOB는 성능통계에서 많이 사용됨
+
+
+---
+
+### 붓꽃 데이터 실습
+
+#### 패키지 로드
+
+
+```python
+from sklearn.datasets import load_iris
+from sklearn.metrics import accuracy_score
+import numpy as np
+import pandas as pd
+```
+
+#### 데이터 분리
+
+
+```python
+iris = load_iris()
+
+from sklearn.model_selection import train_test_split
+x = iris.data
+y = iris.target
+X_train, X_test, Y_train, Y_test = train_test_split(x,y,test_size=0.2)
+```
+
+#### 랜덤 포레스트 분류기 생성
+
+
+```python
+from sklearn.ensemble import RandomForestClassifier
+
+rfc = RandomForestClassifier(n_estimators=10)
+rfc
+```
+
+
+
+
+    RandomForestClassifier(n_estimators=10)
+
+
+
+n_estimators=10 : 트리의 개수 10인 랜던포래스트 분류모델을 생성
+
+#### 랜덤 포레스트 분류 학습
+
+
+```python
+rfc.fit(X_train,Y_train)
+prediction = rfc.predict(X_test)
+
+# 예측 결과
+rfc.score(X_test,Y_test)
+```
+
+
+
+
+    0.8666666666666667
+
+
+
+
+```python
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import classification_report
+
+print("Accuracy : ",accuracy_score(prediction,Y_test))
+print("======================================================")
+print(classification_report(prediction,Y_test))
+```
+
+    Accuracy :  0.8666666666666667
+    ======================================================
+                  precision    recall  f1-score   support
+    
+               0       1.00      1.00      1.00         4
+               1       1.00      0.75      0.86        16
+               2       0.71      1.00      0.83        10
+    
+        accuracy                           0.87        30
+       macro avg       0.90      0.92      0.90        30
+    weighted avg       0.90      0.87      0.87        30
+    
+
+
+#### 랜덤포레스트 분류 성능 높이는 방법
+
+- 트리의 개수를 적당히 확장한다
+    - 랜덤포레스트의 성능이 높아지는 것은 아님을 주의
+- max_features 값을 수정
+
+
+```python
+rfc2 = RandomForestClassifier(n_estimators=200,
+                              max_features=4,
+                              oob_score=True)
+
+rfc2.fit(X_train,Y_train)
+prediction2 = rfc2.predict(X_test)
+print("Accuracy : ",accuracy_score(prediction2,Y_test))
+print("======================================================")
+print(classification_report(prediction2,Y_test))
+```
+
+    Accuracy :  0.8333333333333334
+    ======================================================
+                  precision    recall  f1-score   support
+    
+               0       1.00      1.00      1.00         4
+               1       1.00      0.71      0.83        17
+               2       0.64      1.00      0.78         9
+    
+        accuracy                           0.83        30
+       macro avg       0.88      0.90      0.87        30
+    weighted avg       0.89      0.83      0.84        30
+    
+
+
+데이터가 작아서 오히려 떨어져버림..
+
+#### 각 feature의 중요도 확인
+
+
+```python
+for feature, imp in zip(iris.feature_names,rfc2.feature_importances_):
+    print(feature,imp)
+```
+
+    sepal length (cm) 0.006745704725099442
+    sepal width (cm) 0.005019603641588645
+    petal length (cm) 0.46210977444029805
+    petal width (cm) 0.5261249171930139
+
