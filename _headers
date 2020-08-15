@@ -145,6 +145,15 @@
   Link: </component---node-modules-lekoarts-gatsby-theme-minimal-blog-core-src-templates-post-query-tsx-fb715c2efc1cc5cfc408.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </page-data/파이썬을-이용한-빅데이터-분석-ch-1-개요/page-data.json>; rel=preload; as=fetch; crossorigin
+/파이썬을-이용한-빅데이터-분석-정리
+  Link: </webpack-runtime-1e726a9cf762a9645df0.js>; rel=preload; as=script
+  Link: </framework-0e8501c0599d79803b4b.js>; rel=preload; as=script
+  Link: </app-77968127d29bce8a307d.js>; rel=preload; as=script
+  Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
+  Link: </aed2e917f30c051bccba91aa15989a75fd0bd633-fc9a2565542528c512cf.js>; rel=preload; as=script
+  Link: </component---node-modules-lekoarts-gatsby-theme-minimal-blog-core-src-templates-post-query-tsx-fb715c2efc1cc5cfc408.js>; rel=preload; as=script
+  Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
+  Link: </page-data/파이썬을-이용한-빅데이터-분석-정리/page-data.json>; rel=preload; as=fetch; crossorigin
 /파이썬을-이용한-빅데이터-분석-ch-2-기계학습을-이용한-데이터분석
   Link: </webpack-runtime-1e726a9cf762a9645df0.js>; rel=preload; as=script
   Link: </framework-0e8501c0599d79803b4b.js>; rel=preload; as=script
@@ -163,15 +172,6 @@
   Link: </component---node-modules-lekoarts-gatsby-theme-minimal-blog-core-src-templates-post-query-tsx-fb715c2efc1cc5cfc408.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </page-data/파이썬을-이용한-빅데이터-분석-ch-2-실습/page-data.json>; rel=preload; as=fetch; crossorigin
-/파이썬을-이용한-빅데이터-분석-정리
-  Link: </webpack-runtime-1e726a9cf762a9645df0.js>; rel=preload; as=script
-  Link: </framework-0e8501c0599d79803b4b.js>; rel=preload; as=script
-  Link: </app-77968127d29bce8a307d.js>; rel=preload; as=script
-  Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
-  Link: </aed2e917f30c051bccba91aa15989a75fd0bd633-fc9a2565542528c512cf.js>; rel=preload; as=script
-  Link: </component---node-modules-lekoarts-gatsby-theme-minimal-blog-core-src-templates-post-query-tsx-fb715c2efc1cc5cfc408.js>; rel=preload; as=script
-  Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
-  Link: </page-data/파이썬을-이용한-빅데이터-분석-정리/page-data.json>; rel=preload; as=fetch; crossorigin
 /cpp-stl
   Link: </webpack-runtime-1e726a9cf762a9645df0.js>; rel=preload; as=script
   Link: </framework-0e8501c0599d79803b4b.js>; rel=preload; as=script
@@ -208,15 +208,6 @@
   Link: </component---node-modules-lekoarts-gatsby-theme-minimal-blog-core-src-templates-post-query-tsx-fb715c2efc1cc5cfc408.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </page-data/cpp-stl-vector/page-data.json>; rel=preload; as=fetch; crossorigin
-/자바스크립트-코딩의-기술-ch-10
-  Link: </webpack-runtime-1e726a9cf762a9645df0.js>; rel=preload; as=script
-  Link: </framework-0e8501c0599d79803b4b.js>; rel=preload; as=script
-  Link: </app-77968127d29bce8a307d.js>; rel=preload; as=script
-  Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
-  Link: </aed2e917f30c051bccba91aa15989a75fd0bd633-fc9a2565542528c512cf.js>; rel=preload; as=script
-  Link: </component---node-modules-lekoarts-gatsby-theme-minimal-blog-core-src-templates-post-query-tsx-fb715c2efc1cc5cfc408.js>; rel=preload; as=script
-  Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
-  Link: </page-data/자바스크립트-코딩의-기술-ch-10/page-data.json>; rel=preload; as=fetch; crossorigin
 /자바스크립트-코딩의-기술-ch-6
   Link: </webpack-runtime-1e726a9cf762a9645df0.js>; rel=preload; as=script
   Link: </framework-0e8501c0599d79803b4b.js>; rel=preload; as=script
@@ -226,6 +217,15 @@
   Link: </component---node-modules-lekoarts-gatsby-theme-minimal-blog-core-src-templates-post-query-tsx-fb715c2efc1cc5cfc408.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </page-data/자바스크립트-코딩의-기술-ch-6/page-data.json>; rel=preload; as=fetch; crossorigin
+/자바스크립트-코딩의-기술-ch-10
+  Link: </webpack-runtime-1e726a9cf762a9645df0.js>; rel=preload; as=script
+  Link: </framework-0e8501c0599d79803b4b.js>; rel=preload; as=script
+  Link: </app-77968127d29bce8a307d.js>; rel=preload; as=script
+  Link: </styles-c2fe8482057191dca484.js>; rel=preload; as=script
+  Link: </aed2e917f30c051bccba91aa15989a75fd0bd633-fc9a2565542528c512cf.js>; rel=preload; as=script
+  Link: </component---node-modules-lekoarts-gatsby-theme-minimal-blog-core-src-templates-post-query-tsx-fb715c2efc1cc5cfc408.js>; rel=preload; as=script
+  Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
+  Link: </page-data/자바스크립트-코딩의-기술-ch-10/page-data.json>; rel=preload; as=fetch; crossorigin
 /자바스크립트-코딩의-기술-ch-7
   Link: </webpack-runtime-1e726a9cf762a9645df0.js>; rel=preload; as=script
   Link: </framework-0e8501c0599d79803b4b.js>; rel=preload; as=script
