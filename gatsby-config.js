@@ -6,12 +6,13 @@ const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE;
 
 module.exports = {
   siteMetadata: {
-    siteTitle: `KSLee_Dev`,
+    siteTitle: `{ undefine }`,
+    // Default title of the page
     siteTitleAlt: `Leeks Blog`,
     // Can be used for e.g. JSONLD
     siteHeadline: `Minimal Blog - Gatsby Theme from @lekoarts`,
     // Will be used to generate absolute URLs for og:image etc.
-    // siteUrl: "",
+    siteUrl: `https://minimal-blog.lekoarts.de`,
     // Used for SEO
     siteDescription: `Typography driven, feature-rich blogging theme with minimal aesthetics. Includes tags/categories support and extensive features for code blocks such as live preview, line numbers, and line highlighting.`,
     // Will be set on the <html /> tag
@@ -20,7 +21,6 @@ module.exports = {
     siteImage: `/banner.jpg`,
     // Twitter Handle
     author: `@lekoarts_de`,
-    // Links displayed in the header on the right side
   },
   plugins: [
     {
