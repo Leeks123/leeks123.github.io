@@ -58,6 +58,34 @@ module.exports = {
         ],
       },
     },
+    // {
+    //   resolve: `gatsby-plugin-mdx`,
+    //   options: {
+    //     extensions: [`.mdx`, `.md`],
+    //     remarkPlugins: [require(`remark-math`)],
+    //     rehypePlugins: [require(`rehype-katex`)],
+    //     gatsbyRemarkPlugins: [
+    //       {
+    //         resolve: `gatsby-remark-images`,
+    //         options: {
+    //           maxWidth: 960,
+    //           quality: 90,
+    //           linkImagesToOriginal: false,
+    //         },
+    //       },
+    //     ],
+    //     plugins: [
+    //       {
+    //         resolve: `gatsby-remark-images`,
+    //         options: {
+    //           maxWidth: 960,
+    //           quality: 90,
+    //           linkImagesToOriginal: false,
+    //         },
+    //       },
+    //     ],
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
