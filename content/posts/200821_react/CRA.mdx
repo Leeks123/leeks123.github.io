@@ -1,0 +1,80 @@
+---
+title: CRA 없이 리액트 초기 세팅
+date: 2020-08-21
+tags:
+  - React
+---
+
+### 패키지 설치
+
+```bash
+> npm init
+> npm i react react-dom
+> npm i webpack webpack-cli
+
+> npm i -D @babel/core @babel/preset-env @babel/preset-react babel-loader
+```
+
+### `webpack.config.js` 생성
+
+```javascript
+const path = require("path");
+
+module.exports = {
+  name: "project name",
+  mode: "development",
+  devtool: "eval",
+  resolve: {
+    extensions: [".js", ".jsx"]
+  },
+  entry: {
+    app: ["./client"]
+  },
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        loader: "babel-loader",
+        options: { presets: ["@babel/preset-env", "@babel/preset-react"] }
+      }
+    ]
+  },
+  output: {
+    path: path.join(__dirname, ""),
+    filename: "app.js"
+  }
+};
+
+```
+
+### `client.jsx` 생성 (webpack 초기 진입 entry 파일)
+
+```javascript
+import React from "react";
+import ReactDom from "react-dom";
+import App from "./App";
+
+ReactDom.render(<App />, document.querySelector("#root"));
+
+```
+
+
+
+### 자동 업데이트 설정 (webpack-dev-server)
+
+```bash
+> npm i -D webpack-dev-server
+```
+
+`react-hot-loader`를 이용해서 하는 방법이 있는데 굳이 할 필요 없는 듯..
+
+#### `package.json`
+
+```json
+...
+"script":{
+  "dev" : "webpack-dev-server"
+}
+...
+```
+
